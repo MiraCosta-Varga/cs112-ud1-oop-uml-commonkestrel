@@ -1,3 +1,8 @@
+/**
+ * Tests the User class
+ * 
+ * @author Jett Bergthold
+ */
 public class UserTester {
     public static void main(String[] args) {
         try {

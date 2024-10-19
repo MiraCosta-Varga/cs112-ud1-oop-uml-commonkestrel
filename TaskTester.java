@@ -1,3 +1,8 @@
+/**
+ * Tests the Task class
+ * 
+ * @author Aleksei Meritt-Powell
+ */
 public class TaskTester {
     public static void main(String[] args) {
         Task javaProject = new Task("Finish Java Project", "2024-10-20", Task.PriorityLevel.HIGH);

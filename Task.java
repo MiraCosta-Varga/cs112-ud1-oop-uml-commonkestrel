@@ -1,17 +1,29 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents an individual task
+ * 
+ * @author Aleksei Meritt-Powell
+ */
 public class Task extends ListItem {
     private boolean isComplete;
 
-    // Inner enum class to represent priority levels
+    /**
+     * Inner enum to represent a task's priority level
+     */
     public enum PriorityLevel {
         LOW, MEDIUM, HIGH
     }
 
     private PriorityLevel priority;
 
-    // Constructor
+    /**
+     * Constructs a task with the given properties
+     * @param title The task's name
+     * @param dueDate When the task is due
+     * @param priority The task's priority level
+     */
     public Task(String title, String dueDate, PriorityLevel priority) {
         super(title, LocalDate.parse(dueDate));
         this.priority = priority;
@@ -23,12 +35,14 @@ public class Task extends ListItem {
         this.isComplete = true;
     }
 
-    /** Checks if the task is complete */
+    /** 
+     * Checks if the task is complete
+     * @return {@code true} if the task is complete, otherwise {@code false}
+     */
     public boolean isComplete() {
         return this.isComplete;
     }
 
-    // Override abstract display method
     @Override
     public void display() {
         System.out.println("Task: " + super.title);
