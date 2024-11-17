@@ -1,3 +1,4 @@
+package todo;
 /**
  * Tests the User class
  * 
