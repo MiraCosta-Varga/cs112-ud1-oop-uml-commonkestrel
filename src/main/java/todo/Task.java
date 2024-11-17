@@ -27,8 +27,27 @@ public class Task extends ListItem {
      */
     public Task(String title, String dueDate, PriorityLevel priority) {
         super(title, LocalDate.parse(dueDate));
-        this.priority = priority;
         this.isComplete = false;
+    }
+
+    /**
+     * Constructs a task with the given properties
+     * @param title The task's name
+     * @param dueDate When the task is due
+     * @param priority The task's priority level as either {@code "Low"}, {@code "Medium"}, or {@code "High"}
+     * @throws {@link IllegalArgumentException} if {@code priority} is not one of the specified values.
+     */
+    public Task(String title, String dueDate, String priority) throws IllegalArgumentException {
+        super(title, LocalDate.parse(dueDate));
+        this.isComplete = false;
+        switch (priority) {
+        case "Low":
+            this.priority = PriorityLevel.LOW;
+        case "Medium":
+            this.priority = PriorityLevel.MEDIUM;
+        case "High":
+            this.priority = PriorityLevel.HIGH;
+        }
     }
 
     /** Marks the task as complete */
@@ -40,8 +59,24 @@ public class Task extends ListItem {
      * Checks if the task is complete
      * @return {@code true} if the task is complete, otherwise {@code false}
      */
-    public boolean isComplete() {
+    public boolean getComplete() {
         return this.isComplete;
+    }
+
+    /**
+     * Gets the priority level
+     * @return The priority level, being either {@code "Low"}, {@code "Medium"}, or {@code "High"}
+     */
+    public String getPriority() {
+        switch (this.priority) {
+            default:
+            case PriorityLevel.LOW:
+                return "Low";
+            case PriorityLevel.MEDIUM:
+                return "Medium";
+            case PriorityLevel.HIGH:
+                return "High";
+            }
     }
 
     @Override

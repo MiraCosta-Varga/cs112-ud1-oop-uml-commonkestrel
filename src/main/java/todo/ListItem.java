@@ -1,5 +1,6 @@
 package todo;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Represents an individual todo list item
@@ -39,9 +40,26 @@ public abstract class ListItem {
 
     /**
      * Gets the item's title
-     * @return
+     * @return The item's title
      */
     public String getTitle() {
         return title;
+    }
+
+    /**
+     * Gets the item's title
+     * @return The item's title
+     */
+    public String getName() {
+        return title;
+    }
+
+    /**
+     * Gets the item's date
+     * @return The item's date formatted as {@code mm/dd/yyyy}
+     */
+    public String getDate() {
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return this.date.format(fmt);
     }
 }

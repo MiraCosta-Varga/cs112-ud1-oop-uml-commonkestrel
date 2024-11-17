@@ -1,10 +1,10 @@
 package todo;
 
 import javafx.application.Platform;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+// import javafx.beans.property.BooleanProperty;
+// import javafx.beans.property.SimpleBooleanProperty;
+// import javafx.beans.property.SimpleStringProperty;
+// import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -30,38 +30,41 @@ public class Controller {
     // I'm still figuring out how FXML works with these objects,
     // so I am just creating a sample object that will later be
     // replaced with ListItem
-    public class Task {
-        private StringProperty name = new SimpleStringProperty();
-        private StringProperty date = new SimpleStringProperty();
-        private StringProperty priority = new SimpleStringProperty();
-        private BooleanProperty complete = new SimpleBooleanProperty();
+    // public class Task {
+    //     private StringProperty name = new SimpleStringProperty();
+    //     private StringProperty date = new SimpleStringProperty();
+    //     private StringProperty priority = new SimpleStringProperty();
+    //     private BooleanProperty complete = new SimpleBooleanProperty();
 
-        public Task(String name, String date, String priority, boolean complete) {
-            this.name.set(name);
-            this.date.set(date);
-            this.priority.set(priority);
-            this.complete.set(complete);
-        }
+    //     public Task(String name, String date, String priority, boolean complete) {
+    //         this.name.set(name);
+    //         this.date.set(date);
+    //         this.priority.set(priority);
+    //         this.complete.set(complete);
+    //     }
 
-        public String getName() {
-            return this.name.get();
-        }
+    //     public String getName() {
+    //         return this.name.get();
+    //     }
 
-        public String getDate() {
-            return this.date.get();
-        }
+    //     public String getDate() {
+    //         return this.date.get();
+    //     }
 
-        public String getPriority() {
-            return this.priority.get();
-        }
+    //     public String getPriority() {
+    //         return this.priority.get();
+    //     }
 
-        public boolean getComplete() {
-            return this.complete.get();
-        }
-    }
+    //     public boolean getComplete() {
+    //         return this.complete.get();
+    //     }
+    // }
 
     @FXML
     public void addTask(ActionEvent ev) {
+        // Adds a task on the "Add task" button press
+        // Uses the data from the input fields, clearing them in the process
+
         ev.consume();
         String name = nameField.getText();
         String date = dateField.getText();
@@ -71,7 +74,7 @@ public class Controller {
         dateField.clear();
         priorityChooser.setValue(null);
 
-        Task newTask = new Task(name, date, priority, false);
+        Task newTask = new Task(name, date, priority);
         taskTable.getItems().add(newTask);
     }
 
